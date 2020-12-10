@@ -1,19 +1,19 @@
 <?php
 
-namespace PhalApi\Redis2;
+namespace PhalApi\Xredis;
 
 use PhalApi\Cache\RedisCache;
 
 /**
  * PhalApi-Redis2 拓展类.
  *
- * @author: 喵了个咪 <wenzhenxi@vip.qq.com> 2017-08-19
  * @author: vivlong <vivlong <vivlonglz@gmail.com> 2019-08-28
+ * @author: 喵了个咪 <wenzhenxi@vip.qq.com> 2017-08-19
  * @Maintenance: Axios <axioscros@aliyun.com> 于 2016-09-01 协助维护
  *
  * 在index.php中注册
  * \PhalApi\DI()->redis = function () {
- *       return new \PhalApi\Redis\Lite(\PhalApi\DI()->config->get("app.redis.servers"));
+ *       return new \PhalApi\Redis\Lite(\PhalApi\DI()->config->get("app.xredis.servers"));
  *  };
  *
  * 例子:

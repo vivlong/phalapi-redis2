@@ -4,7 +4,7 @@ PhalApi 2.x扩展类库，从 Redis 2.6.12 版本开始， SET 命令的行为�
 ## 安装和配置
 修改项目下的composer.json文件，并添加：  
 ```
-    "vivlong/phalapi-redis2":"dev-master"
+    "vivlong/phalapi-xredis":"dev-master"
 ```
 然后执行```composer update```。  
 
@@ -13,7 +13,7 @@ PhalApi 2.x扩展类库，从 Redis 2.6.12 版本开始， SET 命令的行为�
     /**
      * 扩展类库 - Redis扩展
      */
-    'redis' => array(
+    'Xredis' => array(
         //Redis链接配置项
         'servers'  => array(
             'host'   => '127.0.0.1',        //Redis服务器地址
@@ -37,7 +37,7 @@ PhalApi 2.x扩展类库，从 Redis 2.6.12 版本开始， SET 命令的行为�
 在/path/to/phalapi/config/di.php文件中，注册：  
 ```php
 $di->cache = function () {
-    return new \PhalApi\Redis2\Lite(\PhalApi\DI()->config->get("app.redis.servers"));
+    return new \PhalApi\Xredis\Lite(\PhalApi\DI()->config->get("app.xredis.servers"));
 };
 ```
 

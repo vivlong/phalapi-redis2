@@ -8,7 +8,7 @@ return array(
     /**
      * 扩展类库 - Redis扩展
      */
-    'redis' => array(
+    'Xredis' => array(
         //Redis链接配置项
         'servers'  => array(
             'host'   => '127.0.0.1',        //Redis服务器地址
