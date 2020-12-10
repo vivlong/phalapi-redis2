@@ -7,7 +7,7 @@
     "xredis",
     "phalapi-xredis"
   ],
-  "license": "MulanPSL v2",
+  "license": "MulanPSL-2.0",
   "homepage": "https://www.phalapi.net/",
   "authors": [{
     "name": "vivlong",
