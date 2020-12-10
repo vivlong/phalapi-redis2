@@ -20,7 +20,7 @@
   },
   "autoload": {
     "psr-4": {
-      "PhalApi\\Redis2\\": "src/"
+      "PhalApi\\Xredis\\": "src/"
     }
   }
 }

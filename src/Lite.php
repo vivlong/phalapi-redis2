@@ -254,7 +254,7 @@ class Lite extends RedisCache
      */
     protected function get_blPop($key)
     {
-        $value = $this->redis->blPop($this->formatKey($key), \PhalApi\DI()->config->get('app.redis.blocking'));
+        $value = $this->redis->blPop($this->formatKey($key), \PhalApi\DI()->config->get('app.Xredis.blocking'));
 
         return $value != false ? $this->unformatValue($value[1]) : null;
     }
@@ -264,7 +264,7 @@ class Lite extends RedisCache
      */
     protected function get_brPop($key)
     {
-        $value = $this->redis->brPop($this->formatKey($key), \PhalApi\DI()->config->get('app.redis.blocking'));
+        $value = $this->redis->brPop($this->formatKey($key), \PhalApi\DI()->config->get('app.Xredis.blocking'));
 
         return $value != false ? $this->unformatValue($value[1]) : null;
     }
@@ -436,7 +436,7 @@ class Lite extends RedisCache
      */
     protected function move($key, $db)
     {
-        $arr = \PhalApi\DI()->config->get('app.redis.DB');
+        $arr = \PhalApi\DI()->config->get('app.Xredis.DB');
         $rs = isset($arr[$db]) ? $arr[$db] : $db;
 
         return $this->redis->move($key, $rs);
@@ -495,7 +495,7 @@ class Lite extends RedisCache
      */
     protected function switchDB($name)
     {
-        $arr = \PhalApi\DI()->config->get('app.redis.DB');
+        $arr = \PhalApi\DI()->config->get('app.Xredis.DB');
         if (is_int($name)) {
             $db = $name;
         } else {
@@ -607,7 +607,7 @@ class Lite extends RedisCache
     {
         $di = \PhalApi\DI();
         if (empty($lockSecond)) {
-            $lockSecond = $di->config->get('app.redis.blocking');
+            $lockSecond = $di->config->get('app.Xredis.blocking');
         }
         $start = $this->getMicroTime();
         do {

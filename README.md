@@ -37,7 +37,7 @@ PhalApi 2.x扩展类库，从 Redis 2.6.12 版本开始， SET 命令的行为�
 在/path/to/phalapi/config/di.php文件中，注册：  
 ```php
 $di->cache = function () {
-    return new \PhalApi\Xredis\Lite(\PhalApi\DI()->config->get("app.xredis.servers"));
+    return new \PhalApi\Xredis\Lite(\PhalApi\DI()->config->get("app.Xredis.servers"));
 };
 ```
 
