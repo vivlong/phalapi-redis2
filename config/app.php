@@ -11,10 +11,14 @@ return array(
     'Xredis' => array(
         //Redis链接配置项
         'servers'  => array(
-            'host'   => '127.0.0.1',        //Redis服务器地址
-            'port'   => '6379',             //Redis端口号
-            'prefix' => 'PhalApi_',         //Redis-key前缀
-            'auth'   => 'phalapi',          //Redis链接密码
+            'scheme'   => '',
+            'path'     => '',
+            'ssl'      => ['cafile' => 'private.pem', 'verify_peer' => true],
+            'host'     => '127.0.0.1',                                          //Redis服务器地址
+            'port'     => '6379',                                               //Redis端口号
+            'cluster' => 'predis',
+            'prefix'   => '',                                                   //Redis-key前缀
+            'password' => '123',                                                //Redis链接密码
         ),
         // Redis分库对应关系
         'DB'       => array(

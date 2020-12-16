@@ -2,25 +2,10 @@
 
 namespace PhalApi\Xredis;
 
-use PhalApi\Cache\RedisCache;
+use PhalApi\Xredis\RedisCache;
 
 /**
- * PhalApi-Redis2 拓展类.
- *
- * @author: vivlong <vivlong <vivlonglz@gmail.com> 2019-08-28
- * @author: 喵了个咪 <wenzhenxi@vip.qq.com> 2017-08-19
- * @Maintenance: Axios <axioscros@aliyun.com> 于 2016-09-01 协助维护
- *
- * 在index.php中注册
- * \PhalApi\DI()->redis = function () {
- *       return new \PhalApi\Redis\Lite(\PhalApi\DI()->config->get("app.xredis.servers"));
- *  };
- *
- * 例子:
- * // 存入永久的键值队
- * \PhalApi\DI()->redis->set_forever(键名,值,库名);
- * // 获取永久的键值队
- * \PhalApi\DI()->redis->get_forever(键名, 库名);
+ * Redis拓展
  */
 class Lite extends RedisCache
 {
@@ -49,8 +34,6 @@ class Lite extends RedisCache
             return call_user_func_array(array($this->redis, $name), $arguments);
         }
     }
-
-    //---------------------------------------------------string类型-------------------------------------------------
 
     /**
      * 将value 的值赋值给key,生存时间为永久 并根据名称自动切换库.
@@ -195,8 +178,6 @@ class Lite extends RedisCache
         return $this->redis->decr($this->formatKey($key), $value);
     }
 
-    //------------------------------------------------List类型-------------------------------------------------
-
     /**
      * 写入队列左边 并根据名称自动切换库.
      */
@@ -325,8 +306,6 @@ class Lite extends RedisCache
     //----------------------------------------------------set类型---------------------------------------------------
     //----------------------------------------------------zset类型---------------------------------------------------
     //----------------------------------------------------Hash类型---------------------------------------------------
-
-    //----------------------------------------------------通用方法---------------------------------------------------
 
     /**
      * 永久计数器,回调当前计数.
@@ -506,8 +485,6 @@ class Lite extends RedisCache
             $this->db_old = $db;
         }
     }
-
-    //-------------------------------------------------------谨慎使用------------------------------------------------
 
     /**
      * 清空当前数据库.
